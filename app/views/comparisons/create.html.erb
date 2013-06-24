@@ -1,0 +1,42 @@
+<h3>Peer Group for: <b><%=@comparison.institution.inst_name%></b></h3>
+<% if @comparison.valid? then%>
+  <%=form_for @comparison, :html => { :id => "save_comparison" } do |f|%>
+    <%=f.hidden_field :institution_id%>
+    <%(1..7).each do |n|%>
+    <%=f.hidden_field "f#{n}_weight"%>
+    <%end%>
+    <%=f.hidden_field :number_of_peers%>
+    <%=hidden_field_tag :save, 1%>
+  <%end%>
+  <p>
+    <%=link_to "Save this comparison", "#", :class => "btn btn-success", 
+          :onclick => "$('form#save_comparison').submit(); return false;"%>
+    <%=link_to "Start again", root_path, :class => "btn btn-info"%>
+  </p>
+  <%=render :partial => "comparison"%>
+<%else%>
+<p class="text-error">
+  The parameters entered are not valid. Please review the form below and try again.
+</p>
+<%end%>
+<hr />
+<h5>Want to try again? Update the options below...</h5>
+<%=semantic_form_for @comparison, :path => comparisons_path, :method => :post do |f| -%>
+  <%=f.inputs :label => "Institution" do%>
+    <%=f.input :institution, :as => :select, :collection => Institution.select_options%>
+    <%=f.input :number_of_peers, :as => :select, :collection => [5,10,15,20,25]%>
+  <%end%>
+  <p class="muted">Factor weight must cumulatively add to 100% (???)</p>
+  <%=f.inputs :label => "Factor Weights" do%>
+    <%=f.input :f1_weight, :label => "Factor One (Size) Weight"%>
+    <%=f.input :f2_weight, :label => "Factor Two (Cost) Weight"%>
+    <%=f.input :f3_weight, :label => "Factor Three (Access) Weight"%>
+    <%=f.input :f4_weight, :label => "Factor Four (Salary) Weight"%>
+    <%=f.input :f5_weight, :label => "Factor Five (Lib Arts) Weight"%>
+    <%=f.input :f6_weight, :label => "Factor Six (UG Comp) Weight"%>
+    <%=f.input :f7_weight, :label => "Factor Seven (Expenditure) Weight"%>
+  <%end%>  
+  <%=f.actions do%>
+    <%=f.submit "Update", :class => "btn btn-info"%>
+  <%end%>
+<%end%>

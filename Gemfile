@@ -39,3 +39,13 @@ gem 'capistrano-ext'
 # gem 'debugger'
 
 gem 'umn_bootstrap_rails', :git => 'git@github.umn.edu:oir/umn_bootstrap_rails'
+
+# Testing
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'capybara'
+  gem 'factory_girl'
+end
+
+gem "spreadsheet", "~> 0.8.5"
+gem "formtastic-bootstrap"
