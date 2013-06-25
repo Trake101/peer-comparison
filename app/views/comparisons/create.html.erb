@@ -1,3 +1,4 @@
+<%highlight_tab "create"%>
 <h3>Peer Group for: <b><%=@comparison.institution.inst_name%></b></h3>
 <% if @comparison.valid? then%>
   <%=form_for @comparison, :html => { :id => "save_comparison" } do |f|%>

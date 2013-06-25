@@ -1,10 +1,10 @@
-<p>Hello, world.</p>
+<%highlight_tab "create"%>
 <p>Select your institution to begin.</p>
 <%=semantic_form_for @comparison do |f| -%>
   <%=f.inputs do%>
-    <%=f.input :institution, :as => :select, :collection => Institution.select_options%>
-  <%end%>
-  <%=f.actions do%>
-    <%=f.submit "Go"%>
+    <%=f.input :institution, :as => :select, :collection => Institution.select_options,
+    :input_html => {:style => "display: inline;"}%>
+    <%=f.submit "Create Peer Group", :class => "btn btn-info",
+    :input_html => {:style => "display: inline;"}%>
   <%end%>
 <%end%>

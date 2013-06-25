@@ -1,0 +1,8 @@
+.nav.highlight_create .create a,
+.nav.highlight_methodology .methodology a,
+.nav.highlight_about .about a,
+.nav.highlight_faq .faq a,
+.nav.highlight_contact .contact a{
+  color: white;
+  background-color: #08C;
+}
