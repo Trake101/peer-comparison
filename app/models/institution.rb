@@ -1,5 +1,5 @@
 class Institution < ActiveRecord::Base
-  attr_accessible :f1_size, :f2_cost, :f3_access, :f4_salary, :f5_libarts, :f6_ugcomp, :c, :inst_name, :unit_id
+  attr_accessible :f1_size, :f2_cost, :f3_access, :f4_salary, :f5_libarts, :f6_ugcomp, :f7_expend, :c, :inst_name, :unit_id
   has_many :comparisons
 
   def distance_from(institution, comp)
@@ -9,7 +9,7 @@ class Institution < ActiveRecord::Base
     ((self.f4_salary   - institution.f4_salary )** 2) * comp.f4_weight +
     ((self.f5_libarts  - institution.f5_libarts )** 2) * comp.f5_weight +
     ((self.f6_ugcomp   - institution.f6_ugcomp )** 2) * comp.f6_weight +
-    ((self.f6_ugcomp   - institution.f6_ugcomp )** 2) * comp.f7_weight
+    ((self.f7_expend   - institution.f6_ugcomp )** 2) * comp.f7_weight
   end
 
   def peer_group(comp)
