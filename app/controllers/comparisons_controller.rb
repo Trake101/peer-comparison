@@ -16,7 +16,10 @@ class ComparisonsController < ApplicationController
         render :create
       end
     else
-      render :create
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 

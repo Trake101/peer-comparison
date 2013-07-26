@@ -22,38 +22,3 @@
 <%end%>
 <hr />
 <h5>Want to try again? Update the options below...</h5>
-<%=semantic_form_for @comparison, :path => comparisons_path, :method => :post do |f| -%>
-<div class="row-fluid">
-  <div class="span4">
-    <%=f.inputs :label => "Institution" do%>
-      <%=f.input :institution, :as => :select, :collection => Institution.select_options%>
-      <%=f.input :number_of_peers, :as => :select, :collection => [5,10,15,20,25]%>
-    <%end%>
-  </div>
-  <div class="span8">
-  <p class="muted">Factor weight must cumulatively add to 100% (???)</p>
-  <%=f.inputs :label => "Factor Weights" do%>
-    Factor One: <%=f.text_field :f1_weight, :label => "Factor One (Size) Weight", :class => "slidable"%>
-    <br />
-    Factor Two: <%=f.text_field :f2_weight, :label => "Factor Two (Cost) Weight", :class => "slidable"%>
-    <br />
-    Factor Three:<%=f.text_field :f3_weight, :label => "Factor Three (Access) Weight", :class => "slidable"%>
-    <br />
-    Factor Four: <%=f.text_field :f4_weight, :label => "Factor Four (Salary) Weight", :class => "slidable"%>
-    <br />
-    Factor Five: <%=f.text_field :f5_weight, :label => "Factor Five (Lib Arts) Weight", :class => "slidable"%>
-    <br />
-    Factor Six: <%=f.text_field :f6_weight, :label => "Factor Six (UG Comp) Weight", :class => "slidable"%>
-    <br />
-    Factor Seven: <%=f.text_field :f7_weight, :label => "Factor Seven (Expenditure) Weight", :class => "slidable"%>
-  <%end%>  
-</div>
-  <%=f.actions do%>
-    <%=f.submit "Update", :class => "btn btn-info"%>
-  <%end%>
-<%end%>
-<script type="text/javascript">
-  $("input.slidable").each(function(i, elem){
-      $(elem).slider('setValue', elem.value);
-  });
-</script>

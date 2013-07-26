@@ -1,0 +1,54 @@
+<%=semantic_form_for @comparison, :path => comparisons_path, :method => :post, :remote => true do |f| -%>
+<div class="row-fluid">
+  <div class="span4">
+    <%=f.inputs do%>
+      <%=f.input :institution, :as => :select, :collection => Institution.select_options,
+                 :label => "Base Institution"%>
+      <%=f.input :number_of_peers, :as => :select, :collection => [5,10,15,20,25]%>
+    <%end%>
+  </div>
+  <div class="span8">
+  <p class="muted">Factor weight must cumulatively add to 100% (???)</p>
+  <%=f.inputs :label => "Factor Weights" do%>
+    <table>
+      <tr>
+      <td>Factor One:&nbsp;</td>
+      <td><%=f.text_field :f1_weight, :label => "Factor One (Size) Weight", :class => "slidable"%></td>
+      </tr>
+      <tr>
+      <td>Factor Two:&nbsp;</td>
+      <td><%=f.text_field :f2_weight, :label => "Factor Two (Cost) Weight", :class => "slidable"%></td>
+      </tr>
+      <tr>
+      <td>Factor Three:&nbsp;</td>
+      <td><%=f.text_field :f3_weight, :label => "Factor Three (Access) Weight", :class => "slidable"%></td>
+      </tr>
+      <tr>
+      <td>Factor Four:&nbsp;</td>
+      <td><%=f.text_field :f4_weight, :label => "Factor Four (Salary) Weight", :class => "slidable"%></td>
+      </tr>
+      <tr>
+      <td>Factor Five:&nbsp;</td>
+      <td><%=f.text_field :f5_weight, :label => "Factor Five (Lib Arts) Weight", :class => "slidable"%></td>
+      </tr>
+      <tr>
+      <td>Factor Six:&nbsp;</td>
+      <td><%=f.text_field :f6_weight, :label => "Factor Six (UG Comp) Weight", :class => "slidable"%></td>
+      </tr>
+      <tr>
+      <td>Factor Seven:&nbsp;</td>
+      <td><%=f.text_field :f7_weight, :label => "Factor Seven (Expenditure) Weight", :class => "slidable"%></td>
+      </tr>
+    </table>
+  <%end%> 
+  </div>
+</div>
+  <%=f.submit "Create Peer Group", :class => "btn btn-info", "data-loading-text" => "Loading..."%>
+<%end%>
+<hr />
+
+<script type="text/javascript">
+  $("input.slidable").each(function(i, elem){
+      $(elem).slider('setValue', elem.value);
+  });
+</script>

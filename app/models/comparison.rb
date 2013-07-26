@@ -13,7 +13,7 @@ class Comparison < ActiveRecord::Base
   validates :institution, :presence => true
 
   def peer_group
-    return Institution.where(["id <> ?", self.institution.id]).sort_by {|inst| inst.distance_from(self.institution, self)}[0..self.number_of_peers]
+    return Institution.where(["id <> ?", self.institution.id]).sort_by {|inst| inst.distance_from(self.institution, self)}[0..self.number_of_peers-1]
   end  
 
   def weights
