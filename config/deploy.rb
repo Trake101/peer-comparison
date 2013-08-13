@@ -33,14 +33,8 @@ set :use_sudo, false
   task :copy_database_yml, :roles => :app do
     run "cp -pf #{shared_path}/db/database.yml #{release_path}/config"
   end
-  
-  desc "Update folder and Create a symlink to the static folder"
-  task :symlink_public, :roles => :app do
-    run "cd #{shared_path}/static && git pull --rebase"
-    run "ln -s #{shared_path}/static /swadm/www/oir-web/current/public/static"
-  end  
  end
- before 'deploy:restart', 'deploy:copy_database_yml', 'deploy:symlink_public'
+ before 'deploy:restart', 'deploy:copy_database_yml'
  
  namespace :utils do
    desc "Allows you to tail your log for the passed stage"
