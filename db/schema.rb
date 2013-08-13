@@ -16,29 +16,29 @@ ActiveRecord::Schema.define(:version => 20130624155159) do
   create_table "comparisons", :force => true do |t|
     t.string   "title"
     t.text     "notes"
-    t.integer  "institution_id"
-    t.float    "f1_weight",       :default => 1.0
-    t.float    "f2_weight",       :default => 1.0
-    t.float    "f3_weight",       :default => 1.0
-    t.float    "f4_weight",       :default => 1.0
-    t.float    "f5_weight",       :default => 1.0
-    t.float    "f6_weight",       :default => 1.0
-    t.float    "f7_weight",       :default => 1.0
-    t.integer  "number_of_peers", :default => 10
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.integer  "institution_id",  :precision => 38, :scale => 0
+    t.decimal  "f1_weight",                                      :default => 1.0
+    t.decimal  "f2_weight",                                      :default => 1.0
+    t.decimal  "f3_weight",                                      :default => 1.0
+    t.decimal  "f4_weight",                                      :default => 1.0
+    t.decimal  "f5_weight",                                      :default => 1.0
+    t.decimal  "f6_weight",                                      :default => 1.0
+    t.decimal  "f7_weight",                                      :default => 1.0
+    t.integer  "number_of_peers", :precision => 38, :scale => 0, :default => 10
+    t.datetime "created_at",                                                      :null => false
+    t.datetime "updated_at",                                                      :null => false
   end
 
   create_table "institutions", :force => true do |t|
     t.string   "unit_id"
     t.string   "inst_name"
-    t.float    "f1_size"
-    t.float    "f2_cost"
-    t.float    "f3_access"
-    t.float    "f4_salary"
-    t.float    "f5_libarts"
-    t.float    "f6_ugcomp"
-    t.float    "f7_expend"
+    t.decimal  "f1_size"
+    t.decimal  "f2_cost"
+    t.decimal  "f3_access"
+    t.decimal  "f4_salary"
+    t.decimal  "f5_libarts"
+    t.decimal  "f6_ugcomp"
+    t.decimal  "f7_expend"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

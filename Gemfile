@@ -49,3 +49,7 @@ end
 
 gem "spreadsheet", "~> 0.8.5"
 gem "formtastic-bootstrap"
+
+# Oracle gems
+gem 'ruby-oci8'
+gem 'activerecord-oracle_enhanced-adapter'
