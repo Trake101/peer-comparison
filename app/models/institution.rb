@@ -9,7 +9,7 @@ class Institution < ActiveRecord::Base
     ((self.f4_salary   - institution.f4_salary )** 2) * comp.f4_weight +
     ((self.f5_libarts  - institution.f5_libarts )** 2) * comp.f5_weight +
     ((self.f6_ugcomp   - institution.f6_ugcomp )** 2) * comp.f6_weight +
-    ((self.f7_expend   - institution.f6_ugcomp )** 2) * comp.f7_weight
+    ((self.f7_expend   - institution.f7_expend )** 2) * comp.f7_weight
   end
 
   def peer_group(comp)
