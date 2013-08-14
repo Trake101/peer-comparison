@@ -1,9 +1,9 @@
 <ul class="nav nav-pills nav-stacked highlight_<%=yield :highlighted_tab %>">
-  <li class="create"><a href="/">Create a peer group</a></li>
-  <li class="about"><a href="/about">About the Tool</a></li>  
-  <li class="methodology"><a href="/methodology">Data &amp; Methodology</a></li>
-  <li class="usage"><a href="/usage">Usage Considerations</a></li>  
-  <li class="faq"><a href="/faq">FAQ</a></li>
-  <li class="contact"><a href="/contact">Contact</a></li>
+  <li class="create"><%=link_to "Create a peer group", root_path%></a></li>
+  <li class="about"><%=link_to "About the Tool", about_path%></a></li>  
+  <li class="methodology"><%=link_to "Data & Methodology", methodology_path%></a></li>
+  <li class="usage"><%=link_to "Usage Considerations", usage_path%></a></li>  
+  <li class="faq"><%=link_to "FAQ", faq_path%></a></li>
+  <li class="contact"><%=link_to "Contact", contact_path%></a></li>
   <li class="nav-header">Created by the University of Minnesota Office of Institutional Research</li>
 </ul>

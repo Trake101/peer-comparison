@@ -19,4 +19,8 @@ class Institution < ActiveRecord::Base
   def self.select_options
     return Institution.order(:inst_name).collect{|i| [i.inst_name, i.id]}
   end
+
+  def factor_string
+    "#{self.f1_size}, #{self.f2_cost}, #{self.f3_access}, #{self.f4_salary}, #{self.f5_libarts}, #{self.f6_ugcomp}, #{self.f7_expend}"
+  end
 end
