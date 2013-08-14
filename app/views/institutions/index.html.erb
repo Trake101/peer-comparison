@@ -1,0 +1,22 @@
+<h1>Institutions</h1>
+<p>All institutions included in the data set along with their factor scores are included on this page.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Institution</th>
+      <th>Factor Scores</td>
+    </tr>
+  </thead>
+  <tbody>
+    <%@institutions.each do |i|%>
+    <tr>
+      <td><%=i.inst_name%></td>
+      <td><span class="inlinesparkline"><%=i.factor_string%></span></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
+
+<script type="text/javascript">
+  $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true});
+</script>

@@ -1,6 +1,7 @@
 PeerComparison::Application.routes.draw do
   root :to => 'home#index'
   resources :comparisons
+  resources :institutions
 
   #static resource links
   match 'contact', :to => 'home#contact'
