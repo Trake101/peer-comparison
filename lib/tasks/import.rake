@@ -8,9 +8,13 @@ namespace :import do
     sheet1.each do |row|
       break if row[0].nil? # if first cell empty
 
-      i = Institution.create(unit_id: row[0], inst_name: row[1], f1_size: row[2].to_f,
-        f3_access: row[4].to_f, f4_salary: row[5].to_f, f5_libarts: row[6].to_f,
-        f6_ugcomp: row[7], f7_expend: row[8], f2_cost: row[3].to_f)
+      begin
+        i = Institution.create(unit_id: row[0], inst_name: row[1], f1_size: row[2].to_f,
+          f3_access: row[4].to_f, f4_salary: row[5].to_f, f5_libarts: row[6].to_f,
+          f6_ugcomp: row[7], f7_expend: row[8], f2_cost: row[3].to_f)
+      rescue
+        "Error loading row"
+      end
 
       puts i.inspect
     end
