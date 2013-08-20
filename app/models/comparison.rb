@@ -21,4 +21,9 @@ class Comparison < ActiveRecord::Base
     F4 (Salary): #{self.f4_weight}; F5 (Lib Arts): #{self.f5_weight}; F6(UG Comp): #{self.f6_weight};
     F7 (Expenditures): #{self.f7_weight}"
   end
+
+  def weights_compact
+    return "#{self.f1_weight} / #{self.f2_weight} / #{self.f3_weight} / #{self.f4_weight}
+    / #{self.f5_weight} / #{self.f6_weight} / #{self.f7_weight}"
+  end
 end

@@ -1,6 +1,6 @@
 class InstitutionsController < ApplicationController
   def index
-    @institutions = Institution.all(:order => :f7_expend)
+    @institutions = Institution.all(:order => :inst_name)
   end
 
   def show

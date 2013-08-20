@@ -50,3 +50,6 @@ gem "formtastic-bootstrap"
 # Oracle gems
 gem 'ruby-oci8'
 gem 'activerecord-oracle_enhanced-adapter'
+
+# Other useful gems
+gem 'will_paginate'

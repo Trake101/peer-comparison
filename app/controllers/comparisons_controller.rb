@@ -1,4 +1,8 @@
 class ComparisonsController < ApplicationController
+  def index
+    @comparisons = Comparison.paginate(:page => params[:page], :per_page => 30, :order => "created_at desc")
+  end
+
   def new
     @institution = Institution.find(params[:institution_id])
     @comparison = Comparison.new
