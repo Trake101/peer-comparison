@@ -11,6 +11,7 @@ class ComparisonsController < ApplicationController
   def create
     @comparison = Comparison.new(params[:comparison])
     @peer_group = @comparison.peer_group
+    
     if params[:save].eql?("1") then
       @comparison.save
 

@@ -21,6 +21,17 @@ class Institution < ActiveRecord::Base
   end
 
   def factor_string
-    "#{self.f1_size}, #{self.f2_cost}, #{self.f3_access}, #{self.f4_salary}, #{self.f5_libarts}, #{self.f6_ugcomp}, #{self.f7_expend}"
+    "#{self.f1_size}, #{self.f2_cost}, #{self.f3_access}, #{self.f4_salary}, 
+    #{self.f5_libarts}, #{self.f6_ugcomp}, #{self.f7_expend}"
+  end
+
+  def factor_diff_string(institution, comp)
+    "#{(self.f1_size - institution.f1_size) * comp.f1_weight}, 
+    #{(self.f2_cost - institution.f2_cost) * comp.f2_weight}, 
+    #{(self.f3_access - institution.f3_access) * comp.f3_weight}, 
+    #{(self.f4_salary - institution.f4_salary) * comp.f4_weight}, 
+    #{(self.f5_libarts - institution.f5_libarts) * comp.f5_weight}, 
+    #{(self.f6_ugcomp - institution.f6_ugcomp) * comp.f6_weight}, 
+    #{(self.f7_expend - institution.f7_expend) * comp.f7_weight}"
   end
 end

@@ -27,7 +27,7 @@
     <tr>
       <th>Rank</th>
       <th>Institution (IPEDS ID)</th>
-      <th>Factor Scores</th>
+      <th>Factor Differences</th>
       <th>Distance *</th>
     </tr>
   </thead>
@@ -36,7 +36,11 @@
     <tr>
       <td><%=index+1%></td>
       <td><%=i.inst_name%> (<%=i.unit_id.to_i%>)</td>
-      <td><span class="inlinesparkline"><%=i.factor_string%></span></td>
+      <td>
+        <span class="inlinesparkline">
+                    <%=@comparison.institution.factor_diff_string(i, @comparison)%>
+                  </span>
+      </td>
       <td><%=number_with_precision(i.distance_from(@comparison.institution, @comparison), precision: 3)%></td>
     </tr>
     <%end%>

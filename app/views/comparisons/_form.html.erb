@@ -4,11 +4,10 @@
     <%=f.inputs do%>
       <%=f.input :institution, :as => :select, :collection => Institution.select_options,
                  :label => "Base Institution", :include_blank => false%>
-      <%=f.input :number_of_peers, :as => :select, :collection => [10,15,20], :include_blank => false%>
+      <%=f.input :number_of_peers, :as => :select, :collection => [10,25,50], :include_blank => false%>
     <%end%>
   </div>
   <div class="span8">
-  <p class="muted">Factor weight must cumulatively add to 100% (???)</p>
   <%=f.inputs :label => "Factor Weights" do%>
     <table>
       <tr>
@@ -41,6 +40,12 @@
       </tr>
     </table>
   <%end%> 
+  </div>
+</div>
+<div class="row-fluid" style="display: none;">
+  <div class="span12">  
+    <hr />
+    <h4>Filters</h4> 
   </div>
 </div>
   <%=f.submit "Create Peer Group", :class => "btn btn-info", "data-loading-text" => "Loading..."%>
