@@ -1,6 +1,27 @@
 <h3>
 <%=@comparison.institution.inst_name%> Peer Group
 </h3>
+<div class="btn-group pull-right">
+  <% if @comparison.new_record?%>
+    <%=link_to "#", :class => "btn btn-default", 
+            :onclick => "$('form#save_comparison').submit(); return false;" do%>
+      <span class="icon-link"></span> Permalink Comparison</a>
+    <%end%>
+  <%end%>
+  <%=link_to root_path, :class => "btn btn-default" do%>
+    <span class="icon-repeat"></span> Start Again
+  <%end%>
+</div>
+<%=form_for @comparison, :html => { :id => "save_comparison" } do |f|%>
+  <%=f.hidden_field :institution_id%>
+  <%(1..7).each do |n|%>
+  <%=f.hidden_field "f#{n}_weight"%>
+  <%end%>
+  <%=f.hidden_field :number_of_peers%>
+  <%=hidden_field_tag :save, 1%>
+<%end%>
+
+<br />
 <table class="table table-striped table-hover table-condensed">
   <thead>
     <tr>
