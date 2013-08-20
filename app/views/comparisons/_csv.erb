@@ -1,10 +1,10 @@
-"Peer Group for <%=@comparison.institution.inst_name%>",,
+Peer Group for <%=@comparison.institution.inst_name%>,,
 ,,
-"Rank", "Institution", "IPEDS Id", <%=(1..7).collect{|n| "F#{n} Diff"}.join(', ')%>, "Distance"
+Rank, Institution, IPEDS Id, <%=(1..7).collect{|n| "F#{n} Diff"}.join(', ')%>, Distance
 <%@peer_group.each_with_index do |i, index|%>
-"<%=index+1%>", "<%=i.unit_id.to_i%>", "<%=@comparison.institution.factor_diff_string(i, @comparison)%>", "<%=number_with_precision(i.distance_from(@comparison.institution, @comparison), precision: 3)%>",, 
+<%=index+1%>, <%=i.inst_name%>, <%=i.unit_id.to_i%>, <%=@comparison.institution.factor_diff_string(i, @comparison)%>, <%=number_with_precision(i.distance_from(@comparison.institution, @comparison), precision: 3)%>,, 
 <%end%>
-"* Weights applied to each factor: <%=@comparison.weights%>",,
-"Downloaded on <%=Time.now%>",,
-"Notes",,
-"TBD"
+* Weights applied to each factor: <%=@comparison.weights%>,,
+Downloaded on <%=Time.now%>,,
+Notes,,
+TBD
