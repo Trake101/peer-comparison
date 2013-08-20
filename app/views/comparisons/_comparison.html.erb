@@ -2,23 +2,44 @@
 <%=@comparison.institution.inst_name%> Peer Group
 </h3>
 <div class="btn-group pull-right">
-  <% if @comparison.new_record?%>
+  <% if @comparison.new_record? then %>
     <%=link_to "#", :class => "btn btn-default", 
             :onclick => "$('form#save_comparison').submit(); return false;" do%>
       <span class="icon-link"></span> Permalink Comparison</a>
     <%end%>
+
+    <%=link_to "#", :class => "btn btn-default", 
+            :onclick => "$('form#dl_comparison').submit(); return false;" do%>
+      <span class="icon-file"></span> Download</a>
+    <%end%>
+  <%else%>
+    <%=link_to(comparison_path(@comparison, :format => :csv), :class => "btn btn-default") do%>
+      <span class="icon-file"></span> Download</a>
+    <%end%>
   <%end%>
   <%=link_to root_path, :class => "btn btn-default" do%>
     <span class="icon-repeat"></span> Start Again
-  <%end%>
+  <%end%>  
+
 </div>
-<%=form_for @comparison, :html => { :id => "save_comparison" } do |f|%>
-  <%=f.hidden_field :institution_id%>
-  <%(1..7).each do |n|%>
-  <%=f.hidden_field "f#{n}_weight"%>
+<% if @comparison.new_record?%>
+  <%=form_for @comparison, :html => { :id => "save_comparison" } do |f|%>
+    <%=f.hidden_field :institution_id%>
+    <%(1..7).each do |n|%>
+    <%=f.hidden_field "f#{n}_weight"%>
+    <%end%>
+    <%=f.hidden_field :number_of_peers%>
+    <%=hidden_field_tag :save, 1%>
   <%end%>
-  <%=f.hidden_field :number_of_peers%>
-  <%=hidden_field_tag :save, 1%>
+
+  <%=form_for @comparison, :html => { :id => "dl_comparison" }, :format => :csv, :method => :post do |f|%>
+    <%=f.hidden_field :institution_id%>
+    <%(1..7).each do |n|%>
+    <%=f.hidden_field "f#{n}_weight"%>
+    <%end%>
+    <%=f.hidden_field :number_of_peers%>
+    <%=hidden_field_tag :save, 0%>
+  <%end%>
 <%end%>
 
 <br />

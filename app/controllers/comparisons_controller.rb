@@ -11,7 +11,7 @@ class ComparisonsController < ApplicationController
   def create
     @comparison = Comparison.new(params[:comparison])
     @peer_group = @comparison.peer_group
-    
+
     if params[:save].eql?("1") then
       @comparison.save
 
@@ -20,10 +20,12 @@ class ComparisonsController < ApplicationController
       else
         render :create
       end
+      
     else
       respond_to do |format|
         format.html
         format.js
+        format.csv
       end
     end
   end
@@ -36,4 +38,5 @@ class ComparisonsController < ApplicationController
   def delete
     @comparison = Comparison.find(params[:id])
   end
+
 end

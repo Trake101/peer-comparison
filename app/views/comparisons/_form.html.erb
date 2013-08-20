@@ -38,6 +38,12 @@
       <td>Factor Seven (Expenditure):&nbsp;</td>
       <td><%=f.text_field :f7_weight, :label => "Factor Seven (Expenditure) Weight", :class => "slidable"%></td>
       </tr>
+      <td>&nbsp;</td>
+      <td>Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x1
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x2
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x3 
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x4
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x5</td>
     </table>
   <%end%> 
   </div>
@@ -54,6 +60,8 @@
 
 <script type="text/javascript">
   $("input.slidable").each(function(i, elem){
+      // Initializer the sliders to the current form value
+      $(elem).slider({'max': 5, 'selection': 'before', 'tooltip': 'hide'})
       $(elem).slider('setValue', elem.value);
   });
 </script>
