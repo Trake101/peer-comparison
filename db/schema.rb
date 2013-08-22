@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(:version => 20130624155159) do
     t.decimal  "f6_weight",                                      :default => 1.0
     t.decimal  "f7_weight",                                      :default => 1.0
     t.integer  "number_of_peers", :precision => 38, :scale => 0, :default => 10
+    t.string   "state"
+    t.string   "fips"
+    t.string   "sector"
+    t.string   "control"
+    t.string   "deg_grant"
+    t.string   "hbcu"
+    t.string   "tribal"
+    t.string   "locale"
+    t.string   "land_grant"
+    t.string   "carnegie"
     t.datetime "created_at",                                                      :null => false
     t.datetime "updated_at",                                                      :null => false
   end
@@ -39,6 +49,17 @@ ActiveRecord::Schema.define(:version => 20130624155159) do
     t.decimal  "f5_libarts"
     t.decimal  "f6_ugcomp"
     t.decimal  "f7_expend"
+    t.string   "state"
+    t.string   "fips"
+    t.string   "sector"
+    t.string   "control"
+    t.string   "deg_grant"
+    t.string   "hbcu"
+    t.string   "tribal"
+    t.string   "locale"
+    t.string   "land_grant"
+    t.string   "carnegie"
+    t.string   "year"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

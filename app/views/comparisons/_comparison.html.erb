@@ -5,7 +5,7 @@
   <% if @comparison.new_record? then %>
     <%=link_to "#", :class => "btn btn-default", 
             :onclick => "$('form#save_comparison').submit(); return false;" do%>
-      <span class="icon-link"></span> Permalink Comparison</a>
+      <span class="icon-link"></span> Permalink</a>
     <%end%>
 
     <%=link_to "#", :class => "btn btn-default", 
@@ -28,6 +28,9 @@
     <%(1..7).each do |n|%>
     <%=f.hidden_field "f#{n}_weight"%>
     <%end%>
+    <%Comparison::CHARACTERISTIC_FILTERS.each do |filter|%>
+    <%=f.hidden_field filter%>
+    <%end%>
     <%=f.hidden_field :number_of_peers%>
     <%=hidden_field_tag :save, 1%>
   <%end%>
@@ -37,6 +40,9 @@
     <%(1..7).each do |n|%>
     <%=f.hidden_field "f#{n}_weight"%>
     <%end%>
+    <%Comparison::CHARACTERISTIC_FILTERS.each do |filter|%>
+    <%=f.hidden_field filter%>
+    <%end%>    
     <%=f.hidden_field :number_of_peers%>
     <%=hidden_field_tag :save, 0%>
   <%end%>

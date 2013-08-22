@@ -18,6 +18,8 @@ set :ssh_options, { :forward_agent => true }
 
 set :use_sudo, false
 
+default_environment['RAILS_RELATIVE_URL_ROOT'] = '/peer-comparison'
+
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts

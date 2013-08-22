@@ -1,6 +1,9 @@
 class Comparison < ActiveRecord::Base
-  attr_accessible :f1_weight, :f2_weight, :f3_weight, :f4_weight, :f5_weight, :f6_weight, :f7_weight, :institution_id, :notes, :title, :number_of_peers
+  attr_accessible :f1_weight, :f2_weight, :f3_weight, :f4_weight, :f5_weight, :f6_weight, :f7_weight, :institution_id, :notes, :title, :number_of_peers,
+  :state, :fips, :sector, :control, :deg_grant, :hbcu, :tribal, :locale, :land_grant, :carnegie
   belongs_to :institution
+
+  CHARACTERISTIC_FILTERS = [:state, :fips, :sector, :control, :deg_grant, :hbcu, :tribal, :locale, :land_grant, :carnegie]
 
   validates :f1_weight, :presence => true, :numericality => {:greater_than_or_equal_to => 0.0}
   validates :f2_weight, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
@@ -13,7 +16,18 @@ class Comparison < ActiveRecord::Base
   validates :institution, :presence => true
 
   def peer_group
-    return Institution.where(["id <> ?", self.institution.id]).sort_by {|inst| inst.distance_from(self.institution, self)}[0..self.number_of_peers-1]
+    # Build lazy loaded query based on inputs
+    p = Institution.where(["id <> ?", self.institution.id])
+
+    # Apply current filters
+    CHARACTERISTIC_FILTERS.each do |f|
+      p = p.where(f => self.send(f)) if !self.send(f).blank?
+    end
+
+    # Sort by distanct
+    p = p.sort_by {|inst| inst.distance_from(self.institution, self)}[0..self.number_of_peers-1]
+
+    return p
   end  
 
   def weights
