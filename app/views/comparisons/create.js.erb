@@ -1,6 +1,9 @@
 $("#comparison_output").fadeOut(function(){
   $("#comparison_output").html("<%=j render :partial => 'comparison'%>");
+  $("#characteristics_wrapper").hide();
   $("#comparison_output").fadeIn();
+  
+  
 });
 
 $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px'});

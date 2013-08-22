@@ -12,7 +12,7 @@
     <%end%>
   </div>
   <div class="span8">
-  <%=f.inputs :label => "Factor Weights" do%>l
+  <%=f.inputs :label => "Factor Weights" do%>
     <table>
       <tr>
       <td>Factor One (Size):&nbsp;</td>
@@ -60,25 +60,21 @@
     </div>
   </div>
   <div class="row-fluid">
-    <div class="span4">  
-        <%=f.input :fips, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:fips), :label => "FIPS"%>
-        <%=f.input :sector, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:sector), :label => "Sector"%>
-        <%=f.input :deg_grant, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:deg_grant), :label => "Degrees Granted"%>
-        <%=f.input :hbcu, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:hbcu), :label => "Historically Black College/University"%>
+    <div class="span4"> 
+      <%mid_point = (Comparison::CHARACTERISTIC_FILTERS.length/2.0).ceil-1
+        end_point = Comparison::CHARACTERISTIC_FILTERS.length-1%>
+        <%Comparison::CHARACTERISTIC_FILTERS[(0..mid_point)].each do |filter| -%>
+          <%=f.input filter, :as => :select, :include_blank => true,
+            :collection => Institution.select_options_for(filter), 
+            :label => characteristic_description(filter)%>
+        <%end%>
     </div>
-      <div class="span4">  
-        <%=f.input :tribal, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:tribal), :label => "Tribal College"%>
-        <%=f.input :locale, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:locale)%>
-        <%=f.input :land_grant, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:land_grant), :label => "Land Grant"%>
-        <%=f.input :carnegie, :as => :select, :include_blank => true,
-          :collection => Institution.select_options_for(:carnegie), :label => "Carnegie Classification"%>
+      <div class="span4">
+        <%Comparison::CHARACTERISTIC_FILTERS[(mid_point+1..end_point)].each do |filter| -%>
+          <%=f.input filter, :as => :select, :include_blank => true,
+            :collection => Institution.select_options_for(filter), 
+            :label => characteristic_description(filter)%>
+        <%end%>
       </div>
     </div>
   </div>

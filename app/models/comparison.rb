@@ -3,7 +3,7 @@ class Comparison < ActiveRecord::Base
   :state, :fips, :sector, :control, :deg_grant, :hbcu, :tribal, :locale, :land_grant, :carnegie
   belongs_to :institution
 
-  CHARACTERISTIC_FILTERS = [:state, :fips, :sector, :control, :deg_grant, :hbcu, :tribal, :locale, :land_grant, :carnegie]
+  CHARACTERISTIC_FILTERS = [:fips, :sector, :deg_grant, :hbcu, :locale, :land_grant, :carnegie]
 
   validates :f1_weight, :presence => true, :numericality => {:greater_than_or_equal_to => 0.0}
   validates :f2_weight, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
@@ -28,7 +28,15 @@ class Comparison < ActiveRecord::Base
     p = p.sort_by {|inst| inst.distance_from(self.institution, self)}[0..self.number_of_peers-1]
 
     return p
-  end  
+  end
+
+  def filtered?
+    CHARACTERISTIC_FILTERS.any?{|f| !self.send(f).blank?}
+  end
+
+  def current_filters
+    CHARACTERISTIC_FILTERS.select{|f| !self.send(f).blank?}
+  end
 
   def weights
     return "F1(Size): #{self.f1_weight}; F2(Cost): #{self.f2_weight}; F3(Access): #{self.f3_weight};

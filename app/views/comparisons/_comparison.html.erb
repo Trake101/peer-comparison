@@ -1,6 +1,14 @@
 <h3>
 <%=@comparison.institution.inst_name%> Peer Group
 </h3>
+<p class="well well-small">
+  <%if @comparison.filtered? then%>
+    <strong>Institutional Filters: </strong>
+    <%=@comparison.current_filters.collect{|f| "#{characteristic_description(f)}: #{@comparison.send(f)}"}.join("; ")%>
+  <%else%>
+    No institutional filters have been applied.
+  <%end%>
+</p>
 <div class="btn-group pull-right">
   <% if @comparison.new_record? then %>
     <%=link_to "#", :class => "btn btn-default", 
