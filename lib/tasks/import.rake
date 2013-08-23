@@ -5,7 +5,7 @@ namespace :import do
   task :institutions => :environment do
     book = Spreadsheet.open('doc/peer_comparison_v2.xls')
     sheet1 = book.worksheet(0) # can use an index or worksheet name
-    sheet1.each do |row|
+    sheet1.each(1) do |row|
       break if row[0].nil? # if first cell empty
 
       begin
@@ -21,6 +21,18 @@ namespace :import do
       end
 
       puts i.inspect
+    end
+
+    # Check for identically named institutions and append state name to the end
+    Institution.all.each do |i|
+      matches = Institution.where(inst_name: i.inst_name)
+      next if matches.to_a.length < 2
+      matches.each do |m|
+        m.inst_name = "#{m.inst_name} (#{m.state})"
+        m.save
+
+        puts "Renamed to #{m.inst_name}"
+      end
     end
   end
 end
