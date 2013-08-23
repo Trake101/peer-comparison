@@ -39,13 +39,13 @@ class Comparison < ActiveRecord::Base
   end
 
   def weights
-    return "F1(Size): #{self.f1_weight}; F2(Cost): #{self.f2_weight}; F3(Access): #{self.f3_weight};
-    F4 (Salary): #{self.f4_weight}; F5 (Lib Arts): #{self.f5_weight}; F6(UG Comp): #{self.f6_weight};
-    F7 (Expenditures): #{self.f7_weight}"
+    return "Size: x#{self.f1_weight.to_i}; Cost: x#{self.f2_weight.to_i}; Access: x#{self.f3_weight.to_i};
+    Salary: x#{self.f4_weight.to_i}; Lib Arts: x#{self.f5_weight.to_i}; UG Comp: x#{self.f6_weight.to_i};
+    Expenditures: x#{self.f7_weight.to_i}"
   end
 
   def weights_compact
-    return "#{self.f1_weight} / #{self.f2_weight} / #{self.f3_weight} / #{self.f4_weight}
-    / #{self.f5_weight} / #{self.f6_weight} / #{self.f7_weight}"
+    return "x#{self.f1_weight.to_i} / x#{self.f2_weight.to_i} / x#{self.f3_weight.to_i} / x#{self.f4_weight.to_i}
+    / x#{self.f5_weight.to_i} / x#{self.f6_weight.to_i} / x#{self.f7_weight.to_i}"
   end
 end

@@ -63,7 +63,11 @@
       <th>Rank</th>
       <th>Institution (IPEDS ID)</th>
       <th>Variable Differences</th>
-      <th>Distance *</th>
+      <th>Distance&nbsp;
+        <a href="#" data-toggle="tooltip" title="Distance Defined" style="color:black; font-weight:none;"  class="pop-left" data-content="34 IPEDS variables were used to derive our seven variables (see Data &amp; Methodology). The distance from other institutions is calculated by taken the difference for each of the variables which were subsequently squared and then summed to produce an overall difference score for each institution. These scores were then sorted from smallest to largest to identify an institution’s 'nearest neighbors.'">
+          <span class="icon-question-sign" ></span>
+        </a>
+      </th>
     </tr>
   </thead>
   <tbody>
@@ -73,17 +77,19 @@
       <td><%=i.inst_name%> (<%=i.unit_id.to_i%>)</td>
       <td>
         <span class="inlinesparkline">
-                    <%=@comparison.institution.factor_diff_string(i, @comparison)%>
-                  </span>
+          <%=@comparison.institution.factor_diff_string(i, @comparison)%>
+        </span>
       </td>
       <td><%=number_with_precision(i.distance_from(@comparison.institution, @comparison), precision: 3)%></td>
     </tr>
     <%end%>
   </tbody>
 </table>
-<p class="small muted">* Weights applied to each variable: <%=@comparison.weights%>.</p>
+<p class="small muted">Weights applied to each variable: <%=@comparison.weights%>.</p>
 <script type="text/javascript">
   $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true, zeroColor: '#ccc', barColor: '#7a0019', 
     negBarColor: '#7a0019', chartRangeMin: '-5', chartRangeMax: '5', barSpacing: '1',
     barWidth: '10'});
+
+  $('.pop-left').popover({trigger: 'hover', placement: 'left'});
 </script>
