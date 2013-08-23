@@ -62,7 +62,7 @@
     <tr>
       <th>Rank</th>
       <th>Institution (IPEDS ID)</th>
-      <th>Factor Differences</th>
+      <th>Variable Differences</th>
       <th>Distance *</th>
     </tr>
   </thead>
@@ -81,7 +81,9 @@
     <%end%>
   </tbody>
 </table>
-<p class="small muted">* Weights applied to each factor: <%=@comparison.weights%>.</p>
+<p class="small muted">* Weights applied to each variable: <%=@comparison.weights%>.</p>
 <script type="text/javascript">
-  $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true});
+  $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true, zeroColor: '#ccc', barColor: '#7a0019', 
+    negBarColor: '#7a0019', chartRangeMin: '-5', chartRangeMax: '5', barSpacing: '1',
+    barWidth: '10'});
 </script>

@@ -13,33 +13,36 @@
   </div>
   <div class="span8">
   <%=f.inputs :label => "Factor Weights" do%>
+    <label class=" control-label">
+      Variable Weights <span class="icon-question-sign"></span>
+    </label>
     <table>
       <tr>
-      <td>Factor One (Size):&nbsp;</td>
+      <td>Size:&nbsp;</td>
       <td><%=f.text_field :f1_weight, :label => "Factor One (Size) Weight", :class => "slidable"%></td>
       </tr>
       <tr>
-      <td>Factor Two (Cost):&nbsp;</td>
+      <td>Cost:&nbsp;</td>
       <td><%=f.text_field :f2_weight, :label => "Factor Two (Cost) Weight", :class => "slidable"%></td>
       </tr>
       <tr>
-      <td>Factor Three (Access):&nbsp;</td>
+      <td>Access:&nbsp;</td>
       <td><%=f.text_field :f3_weight, :label => "Factor Three (Access) Weight", :class => "slidable"%></td>
       </tr>
       <tr>
-      <td>Factor Four (Salary):&nbsp;</td>
+      <td>Salary:&nbsp;</td>
       <td><%=f.text_field :f4_weight, :label => "Factor Four (Salary) Weight", :class => "slidable"%></td>
       </tr>
       <tr>
-      <td>Factor Five (Lib Arts):&nbsp;</td>
+      <td>Liberal Arts:&nbsp;</td>
       <td><%=f.text_field :f5_weight, :label => "Factor Five (Lib Arts) Weight", :class => "slidable"%></td>
       </tr>
       <tr>
-      <td>Factor Six (UG Comp):&nbsp;</td>
+      <td>Undergrad Comp:&nbsp;</td>
       <td><%=f.text_field :f6_weight, :label => "Factor Six (UG Comp) Weight", :class => "slidable"%></td>
       </tr>
       <tr>
-      <td>Factor Seven (Expenditure):&nbsp;</td>
+      <td>Expenditures:&nbsp;</td>
       <td><%=f.text_field :f7_weight, :label => "Factor Seven (Expenditure) Weight", :class => "slidable"%></td>
       </tr>
       <td>&nbsp;</td>
