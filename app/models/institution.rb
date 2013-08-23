@@ -13,7 +13,7 @@ class Institution < ActiveRecord::Base
     ((self.f7_expend   - institution.f7_expend )** 2) * comp.f7_weight
   end
 
-  def peer_group(comp)
+  def comparison_group(comp)
     return Institution.where(["id <> ?", self.id]).sort_by {|inst| inst.distance_from(self, comp)}[0..10]
   end
 

@@ -15,7 +15,7 @@ class Comparison < ActiveRecord::Base
   validates :number_of_peers, :presence => true
   validates :institution, :presence => true
 
-  def peer_group
+  def comparison_group
     # Build lazy loaded query based on inputs
     p = Institution.where(["id <> ?", self.institution.id])
 

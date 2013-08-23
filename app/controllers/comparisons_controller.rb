@@ -10,7 +10,7 @@ class ComparisonsController < ApplicationController
 
   def create
     @comparison = Comparison.new(params[:comparison])
-    @peer_group = @comparison.peer_group
+    @comparison_group = @comparison.comparison_group
 
     if params[:save].eql?("1") then
       @comparison.save
@@ -32,7 +32,7 @@ class ComparisonsController < ApplicationController
 
   def show
     @comparison = Comparison.find(params[:id])
-    @peer_group = @comparison.peer_group
+    @comparison_group = @comparison.comparison_group
   end
 
   def delete

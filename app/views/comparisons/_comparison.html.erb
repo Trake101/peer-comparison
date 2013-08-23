@@ -1,5 +1,5 @@
 <h3>
-<%=@comparison.institution.inst_name%> Peer Group
+<%=@comparison.institution.inst_name%> Comparison Group
 </h3>
 <p class="well well-small">
   <%if @comparison.filtered? then%>
@@ -71,7 +71,7 @@
     </tr>
   </thead>
   <tbody>
-    <%@peer_group.each_with_index do |i, index|%>
+    <%@comparison_group.each_with_index do |i, index|%>
     <tr>
       <td><%=index+1%></td>
       <td><%=i.inst_name%> (<%=i.unit_id.to_i%>)</td>
@@ -87,8 +87,8 @@
 </table>
 <p class="small muted">Weights applied to each variable: <%=@comparison.weights%>.</p>
 <script type="text/javascript">
-  $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true, zeroColor: '#ccc', barColor: '#7a0019', 
-    negBarColor: '#7a0019', chartRangeMin: '-5', chartRangeMax: '5', barSpacing: '1',
+  $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true, zeroColor: '#ccc', barColor: '#3366cc', 
+    negBarColor: '#f04040', chartRangeMin: '-5', chartRangeMax: '5', barSpacing: '1',
     barWidth: '10'});
 
   $('.pop-left').popover({trigger: 'hover', placement: 'left'});
