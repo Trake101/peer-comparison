@@ -4,7 +4,7 @@
 <p class="well well-small">
   <%if @comparison.filtered? then%>
     <strong>Institutional Filters: </strong>
-    <%=@comparison.current_filters.collect{|f| "#{characteristic_description(f)}: #{@comparison.send(f)}"}.join("; ")%>
+    <%=@comparison.current_filters.collect{|f| "#{characteristic_description(f)}: #{Institution.characteristic_lookup(f, @comparison.send(f))}"}.join("; ")%>
   <%else%>
     No institutional filters have been applied.
   <%end%>

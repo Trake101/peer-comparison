@@ -11,7 +11,7 @@ module ApplicationHelper
       when :sector      then  "Sector"
       when :deg_grant   then  "Degrees Granted"
       when :hbcu        then  "Historically Black College/University"
-      when :tribal      then  "FIPS"
+      when :tribal      then  "Tribal"
       when :land_grant  then  "Land Grant"
       when :carnegie    then  "Carnegie Classification"
       else characteristic.to_s.capitalize!
