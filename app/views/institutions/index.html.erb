@@ -1,9 +1,11 @@
 <h1>Institutions</h1>
 <p>All institutions included in the data set along with their factor scores are included on this page.</p>
-<table class="table">
+<table class="table table-condensed table-striped table-hover">
   <thead>
     <tr>
       <th>Institution</th>
+      <th>Sector</th>
+      <th>Carnegie</th>
       <th>Factor Scores</td>
     </tr>
   </thead>
@@ -11,6 +13,8 @@
     <%@institutions.each do |i|%>
     <tr>
       <td><%=i.inst_name%></td>
+      <td><%=Institution.characteristic_lookup(:sector, i.sector)%></td>
+      <td><%=Institution.characteristic_lookup(:carnegie, i.carnegie)%></td>
       <td><span class="inlinesparkline"><%=i.factor_string%></span></td>
     </tr>
     <%end%>
@@ -18,5 +22,7 @@
 </table>
 
 <script type="text/javascript">
-  $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true});
+  $('.inlinesparkline').sparkline('html', {type: 'bar', height: '20px', width: '100px', disableHiddenCheck: true, zeroColor: '#ccc', barColor: '#3366cc', 
+    negBarColor: '#f04040', chartRangeMin: '-5', chartRangeMax: '5', barSpacing: '1',
+    barWidth: '10'});
 </script>

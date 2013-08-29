@@ -34,7 +34,7 @@ class Institution < ActiveRecord::Base
   end
 
   def self.select_options_for(attr)
-    return Institution.select("distinct #{attr}").order(attr.to_sym).collect{|i| [Institution.characteristic_lookup(attr, i.send(attr)), i.send(attr)]}
+    return Institution.select("distinct #{attr}").collect{|i| [Institution.characteristic_lookup(attr, i.send(attr)), i.send(attr)]}.sort { |a, b| a[0] <=> b[0] }
   end
 
   def self.characteristic_lookup(characteristic, code)

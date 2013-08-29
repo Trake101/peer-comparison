@@ -62,6 +62,7 @@
     <tr>
       <th>Rank</th>
       <th>Institution (IPEDS ID)</th>
+      <th>Sector</th>
       <th>Variable Differences
         <a href="#" data-toggle="tooltip" title="Variable Differences" style="color:black;" class="pop-left" data-content="<span style='font-weight: normal'>34 IPEDS variables were used to derive our seven variables (see Data &amp; Methodology). The visualization on each row shows the base institution value subtracted from the comparison institution value for the variable. A negative difference is red (comparison value was higher than peer value) and a positive difference is blue (base value was higher than peer value).</span>" data-html="true">
           <span class="icon-question-sign" ></span>
@@ -79,6 +80,7 @@
     <tr>
       <td><%=index+1%></td>
       <td><%=i.inst_name%> (<%=i.unit_id.to_i%>)</td>
+      <td><%=Institution.characteristic_lookup(:sector, i.sector)%></td>
       <td>
         <span class="inlinesparkline">
           <%=@comparison.institution.factor_diff_string(i, @comparison)%>
