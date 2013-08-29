@@ -68,8 +68,8 @@
           <span class="icon-question-sign" ></span>
         </a>
       </th>
-      <th>Distance&nbsp;
-        <a href="#" data-toggle="tooltip" title="Distance Defined" style="color:black; font-weight:none;"  class="pop-left" data-content="<span style='font-weight: normal'>34 IPEDS variables were used to derive our seven variables (see Data &amp; Methodology). The distance from other institutions is calculated by taken the difference for each of the variables which were subsequently squared and then summed to produce an overall difference score for each institution. These scores were then sorted from smallest to largest to identify an institution’s 'nearest neighbors.'</span>" data-html="true">
+      <th>Difference&nbsp;
+        <a href="#" data-toggle="tooltip" title="Difference Defined" style="color:black; font-weight:none;"  class="pop-left" data-content="<span style='font-weight: normal'>34 IPEDS variables were used to derive our seven variables (see Data &amp; Methodology). The distance from other institutions is calculated by taken the difference for each of the variables which were subsequently squared and then summed to produce an overall difference score for each institution. These scores were then sorted from smallest to largest to identify an institution’s 'nearest neighbors'. <br /><br />Closer to '0' means the institutions are VERY similiar while a large number means they are not very similar </span>" data-html="true">
           <span class="icon-question-sign" ></span>
         </a>
       </th>
@@ -97,5 +97,5 @@
     negBarColor: '#f04040', chartRangeMin: '-5', chartRangeMax: '5', barSpacing: '1',
     barWidth: '10'});
 
-  $('.pop-left').popover({trigger: 'hover', placement: 'left'});
+  $('.pop-left').popover({trigger: 'click', placement: 'left'});
 </script>

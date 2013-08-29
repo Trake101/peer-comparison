@@ -3,8 +3,9 @@
   <div class="span4">
     <%=f.inputs do%>
       <%=f.input :institution, :as => :select, :collection => Institution.select_options,
-                 :label => "Base Institution", :include_blank => false%>
-      <%=f.input :number_of_peers, :as => :select, :collection => [10,25,50], :include_blank => false%>
+                 :label => "Base Institution", :include_blank => false, :required => false%>
+      <%=f.input :number_of_peers, :as => :select, :collection => [10,25,50], 
+                  :include_blank => false, :required => false%>
       <br />
       <%=link_to "#", :id => "characteristics_link", :class => "btn" do%>
         <span class="icon-plus"></span> Institutional Filters
@@ -104,5 +105,5 @@
       $("#characteristics_wrapper").fadeIn();
   });
 
-  $('.pop').popover({trigger: 'hover'});
+  $('.pop').popover({trigger: 'click'});
 </script>
