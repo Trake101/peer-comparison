@@ -118,8 +118,8 @@ class Institution < ActiveRecord::Base
   def self.decode_sector(code)
     case(code)
       when "0" then 'Administrative Unit'
-      when "1" then 'Public, 4-year or above'
-      when "2" then 'Private not-for-profit, 4-year or above'
+      when "1" then 'Public'
+      when "2" then 'Private'
       when "3" then 'Private for-profit, 4-year or above'
       when "4" then 'Public, 2-year'
       when "5" then 'Private not-for-profit, 2-year'
