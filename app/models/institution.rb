@@ -2,7 +2,9 @@ class Institution < ActiveRecord::Base
   include ApplicationHelper
 
   attr_accessible :f1_size, :f2_cost, :f3_access, :f4_salary, :f5_libarts, :f6_ugcomp, :f7_expend, :c, :inst_name, :unit_id,
-  :state, :fips, :sector, :control, :deg_grant, :hbcu, :tribal, :locale, :land_grant, :carnegie, :year
+  :state, :fips, :sector, :control, :deg_grant, :hbcu, :tribal, :locale, :land_grant, :carnegie, :year,
+  :address, :city, :zip, :website, :county_code, :county, :longitude, :latitude
+
   has_many :comparisons
 
   def distance_from(institution, comp)

@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+     <script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCLgA2snA2KjKosirVzvgUVtlnYmQYw_Co&sensor=false">
+    </script>
+    <%= render :partial => 'layouts/umn_bootstrap/common/head' %>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+      <%= render :partial => 'layouts/umn_bootstrap/common/header' %>
+
+      <div class="jumbotron">
+        <%= render :partial => 'shared/umn_bootstrap/application_header' %>
+      </div>
+
+      <%= yield %>
+
+      <%= render :partial => 'layouts/umn_bootstrap/common/footer' %>
+
+    </div>
+    <%= render_if_exists :partial => 'shared/umn_bootstrap/analytics' %>
+  </body>
+</html>

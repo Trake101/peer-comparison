@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130624155159) do
+ActiveRecord::Schema.define(:version => 20130916185247) do
 
   create_table "comparisons", :force => true do |t|
     t.string   "title"
@@ -60,8 +60,31 @@ ActiveRecord::Schema.define(:version => 20130624155159) do
     t.string   "land_grant"
     t.string   "carnegie"
     t.string   "year"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "address"
+    t.string   "city"
+    t.string   "zip"
+    t.string   "website"
+    t.string   "county_code"
+    t.string   "county"
+    t.decimal  "longitude"
+    t.decimal  "latitude"
+  end
+
+  create_table "ipeds_institution_details", :id => false, :force => true do |t|
+    t.string "unitid",   :limit => 6
+    t.string "addr",     :limit => 65
+    t.string "city",     :limit => 23
+    t.string "stabbr",   :limit => 2
+    t.string "zip",      :limit => 10
+    t.string "webaddr",  :limit => 143
+    t.string "countycd", :limit => 5
+    t.string "countynm", :limit => 30
+    t.string "cngdstcd", :limit => 4
+    t.string "longitud", :limit => 18
+    t.string "latitude", :limit => 18
+    t.string "location", :limit => 111
   end
 
 end
