@@ -41,7 +41,7 @@ gem 'umn_bootstrap_rails', :git => 'git@github.umn.edu:oir/umn_bootstrap_rails'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 gem "spreadsheet", "~> 0.8.5"
@@ -53,3 +53,9 @@ gem 'activerecord-oracle_enhanced-adapter'
 
 # Other useful gems
 gem 'will_paginate'
+
+#temporariy for rspec Testing
+group :test do
+	gem 'sqlite3'
+	gem 'database_cleaner', '1.0.1'
+end

@@ -6,14 +6,14 @@ module Api
       respond_to :json
 
       def index
-        respond_with Comparison.all
+        respond_with Comparison.all, status: 200
       end
 
 			def new
 			  @comparison = Comparison.new(institution_id: @institution.id, number_of_peers: @number_of_peers)
 			  @comparison_group = @comparison.comparison_group
 
-        respond_with @comparison_group
+        respond_with @comparison_group, status: 200
         
 			end
 
@@ -27,12 +27,12 @@ module Api
 
         #require that 'unit_id' and 'number_of_peers' params have been supplied
         unless required_params.all?{|p| params.keys.include?(p)}
-          respond_with errors: "invalid number of params", status: 442 and return false
+          respond_with errors: "invalid number of params", status: 422 and return false
         end
 
         #check if unit_id is valid and not nill
         if !Institution.where(unit_id: params[:unit_id].to_i).first || params[:unit_id].nil?
-          respond_with errors: "Invalid or blank IPEDS id (unit_id)", status: 442 and return false
+          respond_with errors: "Invalid or blank IPEDS id (unit_id)", status: 422 and return false
         else
           @institution = Institution.where(unit_id: params[:unit_id].to_i).first
         end
