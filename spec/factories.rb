@@ -38,7 +38,7 @@ FactoryGirl.define do
     f5_weight 2
     f6_weight 2
     f7_weight 2
-    number_of_peers 20
+    number_of_peers 0
     association :institution, factory: :institution
   end
 end
