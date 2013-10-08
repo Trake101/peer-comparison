@@ -13,7 +13,7 @@
     <%@comparisons.each do |c|%>
     <tr>
       <td><%=link_to c.institution.inst_name, comparison_path(c)%></td>
-      <td><%=c.number_of_peers%></td>
+      <td><%=c.clean_number_of_peers%></td>
       <td><%=c.weights_compact%></td>
       <td><%=I18n.l c.created_at%></td>
     </tr>

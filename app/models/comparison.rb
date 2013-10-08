@@ -12,7 +12,6 @@ class Comparison < ActiveRecord::Base
   validates :f5_weight, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
   validates :f6_weight, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
   validates :f7_weight, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
-  validates :number_of_peers, :presence => true
   validates :institution, :presence => true
 
   def comparison_group
@@ -25,7 +24,7 @@ class Comparison < ActiveRecord::Base
     end
 
     # Sort by distanct
-    p = p.sort_by {|inst| inst.distance_from(self.institution, self)}[0..self.number_of_peers-1]
+    p = p.sort_by {|inst| inst.distance_from(self.institution, self)}[0..self.clean_number_of_peers-1]
 
     return p
   end
@@ -47,5 +46,13 @@ class Comparison < ActiveRecord::Base
   def weights_compact
     return "x#{self.f1_weight.to_i} / x#{self.f2_weight.to_i} / x#{self.f3_weight.to_i} / x#{self.f4_weight.to_i}
     / x#{self.f5_weight.to_i} / x#{self.f6_weight.to_i} / x#{self.f7_weight.to_i}"
+  end
+
+  def clean_number_of_peers
+    if number_of_peers.nil?
+      return Institution.count
+    else
+      return number_of_peers
+    end
   end
 end
