@@ -9,6 +9,7 @@ PeerComparison::Application.routes.draw do
   match 'faq', :to => 'home#faq'
   match 'methodology', :to => 'home#methodology'
   match 'usage', :to => 'home#usage'
+  match 'api', :to => 'home#api'   
 
 	#api links
 	namespace :api, defaults: {format: 'json'} do
@@ -16,5 +17,4 @@ PeerComparison::Application.routes.draw do
 			resources :comparisons
 		end
 	end
-  
 end

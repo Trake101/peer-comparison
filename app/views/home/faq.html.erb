@@ -17,3 +17,12 @@
   You can click the 'Review Comparison Groups' on the left navigation, <%=link_to "browse", comparisons_path%> and search all of the comparison groups which have been created in the past or you can simply <%=link_to "re-create", root_path%> the comparison group!
 </p>
 <hr />
+<h5>Q. Can I use the comparison data without using the web interface?</h5>
+<p>
+  We have provided two means for using the comparison group data. First, have you have created a comparison group, you can export the result set to CSV by clicking the 
+    <%=link_to('#', :class => "btn btn-default") do%>
+      <span class="icon-file"></span> Download</a>
+    <%end%>
+   button. Second, if you are a developer, or familiar with other modern APIs, you can export the data using our <%=link_to "API", api_path%>. This will provide access to our backend processing and return a comparison group in the standard JSON (JavaScript Object Notation) format.
+</p>
+<hr />

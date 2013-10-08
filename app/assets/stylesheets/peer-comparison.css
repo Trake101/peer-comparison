@@ -4,6 +4,7 @@
 .nav.highlight_about .about a,
 .nav.highlight_faq .faq a,
 .nav.highlight_usage .usage a,
+.nav.highlight_api .api a,
 .nav.highlight_contact .contact a{
   color: white;
   background-color: #08C;
