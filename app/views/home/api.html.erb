@@ -2,6 +2,32 @@
 <h1>Comparison Group Generator API</h1>
 <hr />
 <h2>Overview</h2>
+<hr />
 <p>To increase the usage of our comparison data set, we have created an API to the data we use for generating our comparison groups. The hope is to enable other developers and institutional research departments creative control over the output and visualization of our data.</p>
-<h2>API v1 Usage Details</h2>
-<p>Copy</p>
+<p>This is the documentation for the V1 Peer Comparison API. All API responses are <a href="http://en.wikipedia.org/wiki/JSON" target="_blank">JSON</a>.</p>
+<br>
+<h2>Methods</h2>
+<hr />
+<p><h4>View Comparisons</h4></p>
+<p>http://apps.oir.umn.edu/peer-comparison/api/v1/comparisons/ -- Get a list of all comparisons generated</p>
+<p><strong>Discussion</strong></p>
+<p>Get all comparisons generated in the system.</p>
+<p><strong>Parameters</strong></p>
+NONE
+<br>
+<br>
+<p><h4>Generate Comparisons</h4></p>
+<p>http://apps.oir.umn.edu/peer-comparison/api/v1/comparisons/new?unit_id={IPEDS id}&number_of_peers={number of peers to generate} -- Generate a peer group</p>
+<p><strong>Discussion</strong></p>
+<p>Get a list of peer institutions based on provided institution IPEDS id (unit_id) and number of peers value (number_of_peers).</p>
+<p><strong>Parameters</strong></p>
+<p><strong>unit_id</strong> - IPEDS id of the institution for which the comparison gropu is being generated</p>
+<p><strong>number_of_peers</strong> - The numbe of institutions that should be included in the generated peer group. By default, in the output these are sorted in order of least to most <%=link_to "difference", methodology_path, target: "_blank" %> from the requesting institution.</p>
+<br>
+<br>
+<h2>Examples</h2>
+<hr />
+<p><strong>Example request url to view all generated comparisons</strong></p>
+<p>http://apps.oir.umn.edu/peer-comparison/api/v1/comparisons/</p>
+<p><strong>Example request url to generate a comparison group</strong></p>
+<p>http://apps.oir.umn.edu/peer-comparison/api/v1/comparisons/new?unit_id=110635&number_of_peers=3</p>
