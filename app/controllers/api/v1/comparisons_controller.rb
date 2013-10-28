@@ -5,10 +5,6 @@ module Api
 
       respond_to :json
 
-      def index
-        respond_with Comparison.all, status: 200
-      end
-
 			def new
 			  @comparison = Comparison.new(institution_id: @institution.id, number_of_peers: @number_of_peers)
 			  @comparison_group = @comparison.comparison_group
