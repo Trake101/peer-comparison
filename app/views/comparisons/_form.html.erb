@@ -4,7 +4,7 @@
     <%=f.inputs do%>
       <%=f.input :institution, :as => :select, :collection => Institution.select_options,
                  :label => "Base Institution", :include_blank => false, :required => false%>
-      <%=f.input :number_of_peers, :as => :select, :collection => [[10, "10"],[25, 25],[50, 50], ["All Available", ""]], 
+      <%=f.input :number_of_peers, :as => :select, :collection => [[10, 10],[25, 25],[50, 50], [250,250], ["All Available", ""]], 
                   :include_blank => false, :required => false%>
       <br />
       <%=link_to "#", :id => "characteristics_link", :class => "btn" do%>
