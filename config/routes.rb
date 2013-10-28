@@ -14,7 +14,7 @@ PeerComparison::Application.routes.draw do
 	#api links
 	namespace :api, defaults: {format: 'json'} do
 		namespace :v1 do
-			resources :comparisons
+			resources :comparisons, only: :new
 		end
 	end
 end
