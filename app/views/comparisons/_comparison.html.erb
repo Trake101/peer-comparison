@@ -18,11 +18,11 @@
 
     <%=link_to "#", :class => "btn btn-default", 
             :onclick => "$('form#dl_comparison').submit(); return false;" do%>
-      <span class="icon-file"></span> Download</a>
+      <span class="icon-download"></span> Download</a>
     <%end%>
   <%else%>
     <%=link_to(comparison_path(@comparison, :format => :csv), :class => "btn btn-default") do%>
-      <span class="icon-file"></span> Download</a>
+      <span class="icon-download"></span> Download</a>
     <%end%>
   <%end%>
   <%=link_to root_path, :class => "btn btn-default" do%>

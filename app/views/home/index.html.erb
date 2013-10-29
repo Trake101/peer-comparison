@@ -1,6 +1,54 @@
 <%highlight_tab "create"%>
+<h1>Create a comparison group</h1>
+<hr />
+  <p class="pull-right">
+    <a href="#myModal" data-toggle="modal">Need help getting started <i class="icon-question-sign"></i></a>
+  </p>
 <%=render :partial => "comparisons/form"%>
 <div id="comparison_output"></div>
 <div id="map-canvas" style="width: 100%; height: 300px;">
 
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">How do I get started?</h3>
+  </div>
+  <div class="modal-body">
+    <p>
+      This dialog is meant to help a new user get started with our Comparison Group creation form. For details about the creation of our data set or using the data, check the <a href="/about">About the Tool</a> and <a href="/methodology">Data & Methodology</a> sections.
+    </p>
+    <div class="well well-small">
+      <h4>Creating a comparison group</h4>
+      <ol>
+        <li>
+          Choose a "Base Institution". This is the institution for which you are creating a comparison group. For example I may choose, "University of Minnesota - Twin Cities" as I work in the University's IR office.
+        </li>
+
+        <li>
+          Choose the "Number of peers". This controls the number of institutions which will be output for your comparison group. To include every University in our data set, choose "All available".
+        </li>
+
+        <li>Adjust the "Variable weights". It is recommend you leave the weights at the default value (1x) the first time through. Adjusting the bar changing the multiplier applied to each variable. If you would like to emphasize (or de-emphasize) a variable, slide the bar up or down.
+        </li>
+
+        <li>(Optional) Apply institutional filters. Click the <a href='#' class="btn"><i class="icon-filter"></i> Institutional Filters</a> button. This will bring up options for a number of institutional characteristics to limit your comparison group by a specific characteristic (e.g. show only Land Grant institutions). It does NOT matter if these characteristics apply to your "Base Institution".
+        </li>
+
+        <li>Click <a href='#' class="btn btn-primary">Create Comparison Group</a>. This may take a minute to load. Your comparison group will appear in a tabular format, ordered by the similiarity to your "Base Institution". A map will also appear, showing the location of each institution in the comparison group.
+        </li>
+
+        <li>(Optional) After creating your comparison group, you may <a href='#' class="btn"><i class="icon-download"> Download</i></a> the results or <a href='#' class="btn"><i class="icon-link"></i> Permalink</a> to the comparison group, which will re-direct you to a page which you can share with your colleagues. You may also return to the form above to adjust "Variable weights" and "Institutional Filters" to better meet your needs.
+        </li>
+      </ol>
+    </div>
+    <p>
+      If you are still not sure of what to do here, run through our <a href="/faq">FAQ</a>. If you don't find an answer there, <a href="/contact">Contact us</a> directly and we will do our best to help.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
 </div>

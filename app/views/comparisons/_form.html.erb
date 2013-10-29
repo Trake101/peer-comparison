@@ -8,7 +8,7 @@
                   :include_blank => false, :required => false%>
       <br />
       <%=link_to "#", :id => "characteristics_link", :class => "btn" do%>
-        <span class="icon-plus"></span> Institutional Filters
+        <span class="icon-filter"></span> Institutional Filters
       <%end%>
     <%end%>
   </div>
@@ -86,7 +86,10 @@
     </div>
   </div>
   <hr />
-  <%=f.submit "Create Comparison Group", :class => "btn btn-info", "data-loading-text" => "Loading..."%>
+  <%=f.submit "Create Comparison Group", :class => "btn btn-primary", "data-loading-text" => "Loading..."%> or
+  <%=link_to root_path, :class => "btn btn-default btn-small" do%>
+    <span class="icon-repeat"></span> Start Again
+  <%end%> 
 <%end%>
 <hr />
 
