@@ -10,9 +10,10 @@
       <%=link_to "#", :id => "characteristics_link", :class => "btn" do%>
         <span class="icon-filter"></span> Institutional Filters
       <%end%>
+      <br />
     <%end%>
   </div>
-  <div class="span8">
+  <div class="span5">
   <%=f.inputs :label => "Factor Weights" do%>
     <label class=" control-label">
       Variable Weights 
@@ -58,6 +59,11 @@
     </table>
   <%end%> 
   </div>
+  <div class="span3">
+  <p>
+    <a href="#myModal" data-toggle="modal">Need help getting started <i class="icon-question-sign"></i></a>
+  </p>
+</div>
 </div>
 <div id="characteristics_wrapper" style="display:none;">
   <div class="row-fluid">
