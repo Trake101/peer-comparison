@@ -29,8 +29,8 @@ gem 'jquery-rails'
 # gem 'unicorn'
 
 # Deploy with Capistrano
-gem 'capistrano'
-gem 'capistrano-ext'
+gem 'capistrano', '2.15.4'
+gem 'capistrano-ext', '1.2.1'
 
 # To use debugger
 # gem 'debugger'
@@ -53,6 +53,7 @@ gem 'activerecord-oracle_enhanced-adapter'
 
 # Other useful gems
 gem 'will_paginate'
+gem "spreadsheet", "~> 0.8.5"
 
 #temporariy for rspec Testing
 group :test do
