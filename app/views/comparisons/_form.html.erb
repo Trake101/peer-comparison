@@ -2,15 +2,13 @@
 <div class="row-fluid">
   <div class="span4">
     <%=f.inputs do%>
+      <div style="display: none">  
       <%=f.input :institution, :as => :select, :collection => Institution.select_options,
                  :label => "Base Institution", :include_blank => false, :required => false%>
-      <p>
-        <%=link_to '#', :id => "institution-search-toggle", :class => "btn btn-mini" do%>
-          <i class="icon-search"></i> Institution Search
-        <%end%>
-      </p>
+      </div>
       <div id="institution-search">
-        <input class="typeahead" type="text" placeholder="Type an institution name" id="institution-search-input">
+        <label>Base Institution</label>
+        <input class="typeahead" type="text" placeholder="Search by name or unit id" id="institution-search-input">
       </div>
       <%=f.input :number_of_peers, :as => :select, :collection => [[10, 10],[25, 25],[50, 50], [250,250], ["All Available", ""]], 
                   :include_blank => false, :required => false%>
@@ -126,7 +124,7 @@
 
 
   var institutions = new Bloodhound({
-    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.inst_name + " " + d.unit_id); },
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.inst_name + " " + d.unit_id + " " + d.city); },
     queryTokenizer: Bloodhound.tokenizers.whitespace ,
     prefetch: 'api/v1/institutions',
     limit: 10
@@ -151,18 +149,16 @@
 
   $('.typeahead').bind('typeahead:selected', function(obj, datum) {        
     $("#comparison_institution_id").val(datum.id);
-    $("#institution-search").fadeOut();
-    $('#institution-search-input').val(" ");
+    //$('.typeahead').typeahead('setQuery', '');
   }); 
 
   $('.typeahead').bind('typeahead:autocompleted', function(obj, datum) {    
     $("#comparison_institution_id").val(datum.id);
-    $("#institution-search").fadeout();
-    $('#institution-search-input').val(" ");
+    //$('.typeahead').typeahead('setQuery', '');
   });  
 
-  $("#institution-search-toggle").click(function(e){
-    $("#institution-search").fadeIn();
-    $('#institution-search-input').val(" ");
+  $("#institution-search-input").focus(function(e){
+    console.log('tried to clear');
+    $('#institution-search-input').val('');
   });
 </script>

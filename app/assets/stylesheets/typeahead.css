@@ -2,6 +2,7 @@
   background-color: white;
   width: 300px;
   border: 1px solid gray;
+  position: relative;
 }
 
 .tt-suggestions{
@@ -27,7 +28,7 @@ p.inst-locale {
 }
 
 #institution-search{
-  display: none;
+  /*display: none;*/
 }
 
 select#comparison_institution_id {
