@@ -1,21 +1,19 @@
 <h1>Institutions</h1>
-<p>All institutions included in the data set along with their factor scores are included on this page.</p>
+<p>All institutions included in the data set along with their factor scores are included on this page. Click on an institution for more information.</p>
 <table class="table table-condensed table-striped table-hover">
   <thead>
     <tr>
       <th>Institution</th>
+      <th>Location</th>
       <th>Sector</th>
-      <th>Carnegie</th>
-      <th>Factor Scores</td>
     </tr>
   </thead>
   <tbody>
     <%@institutions.each do |i|%>
     <tr>
-      <td><%=i.inst_name%></td>
+      <td><%=link_to i.inst_name, institution_path(i)%></td>
+      <td><%=i.city%>, <%=i.state%></td>
       <td><%=Institution.characteristic_lookup(:sector, i.sector)%></td>
-      <td><%=Institution.characteristic_lookup(:carnegie, i.carnegie)%></td>
-      <td><span class="inlinesparkline"><%=i.factor_string%></span></td>
     </tr>
     <%end%>
   </tbody>

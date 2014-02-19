@@ -1,0 +1,74 @@
+<h1><%=@institution.inst_name%></h1>
+<h3 style="color: gray;"><%=@institution.city%>, <%=@institution.state%></h3>
+<h4 style="color: gray;">IPEDS Unit ID: <%=@institution.unit_id%></h4>
+<div class="row-fluid">
+  <div class="span4 inst-data">
+    <h4>Data</h4>
+    <label>Size</label>
+    <p class="<%=color_class(@institution.f1_size.abs)%>">
+      <%=@institution.f1_size%>
+    </p>
+    <label>Tuition/Aid</label>
+    <p class="<%=color_class(@institution.f2_cost.abs)%>">
+      <%=@institution.f2_cost%>
+    </p>
+    <label>Access</label>
+    <p class="<%=color_class(@institution.f3_access.abs)%>">
+      <%=@institution.f3_access%>
+    </p>
+    <label>Faculty Salary</label>
+    <p class="<%=color_class(@institution.f4_salary.abs)%>">
+      <%=@institution.f4_salary%>
+    </p>
+    <label>Lib Arts Focus</label>
+    <p class="<%=color_class(@institution.f5_libarts.abs)%>">
+      <%=@institution.f5_libarts%>
+    </p>
+    <label>Non-Traditional</label>
+    <p class="<%=color_class(@institution.f6_ugcomp.abs)%>">
+      <%=@institution.f6_ugcomp%>
+    </p>
+    <label>Expenditures</label>
+    <p class="<%=color_class(@institution.f7_expend.abs)%>">
+      <%=@institution.f7_expend%>
+    </p>
+    <p style="color: gray; font-size: 75%;">* Values close to average (near zero) are light gray and furthest from average (near seven) are black</p>
+  </div>
+
+  <div class="span4 inst-characteristics">
+    <h4>Characteristics</h4>
+    <%Comparison::CHARACTERISTIC_FILTERS.each do |c|%>
+    <label><%=characteristic_description(c)%></label> 
+    <p><%=Institution.characteristic_lookup(c ,@institution.send(c))%></p>
+    <%end%>
+  </div>
+
+  <div class="span4">
+    <h4>Location</h4>
+    <div id="map-canvas" style="width: 100%; height: 300px;">
+
+    </div>    
+  </div>
+</div>
+<script>
+  $('.pop-left').popover({trigger: 'click', placement: 'left'});
+
+  $(window).bind("load", function() {
+    // embed google map
+    var centroid = new google.maps.LatLng(<%=@institution.latitude%>, <%=@institution.longitude%>);
+
+    var mapOptions = {
+      zoom: 8,
+      center: centroid,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+    }
+
+    var group_map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+    new google.maps.Marker({
+        position: new google.maps.LatLng(<%=@institution.latitude%>, <%=@institution.longitude%>),
+        title:"<%=@institution.inst_name%>",
+        map: group_map
+    });    
+  });
+</script>

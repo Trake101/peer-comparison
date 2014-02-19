@@ -61,7 +61,7 @@
   <thead>
     <tr>
       <th>Rank</th>
-      <th>Institution (IPEDS ID)</th>
+      <th>Institution</th>
       <th>Sector</th>
       <th>Variable Differences
         <a href="#" data-toggle="tooltip" title="Variable Differences" style="color:black;" class="pop-left" data-content="<span style='font-weight: normal'>34 IPEDS variables were used to derive our seven variables (see Data &amp; Methodology). The visualization on each row shows the base institution value subtracted from the comparison institution value for the variable. A negative difference is red (comparison value was higher than peer value) and a positive difference is blue (base value was higher than peer value).</span>" data-html="true">
@@ -79,7 +79,7 @@
     <%@comparison_group.each_with_index do |i, index|%>
     <tr>
       <td><%=index+1%></td>
-      <td><%=i.inst_name%> (<%=i.unit_id.to_i%>)</td>
+      <td><%=link_to i.inst_name, institution_path(i), :target => "_blank"%></td>
       <td><%=Institution.characteristic_lookup(:sector, i.sector)%></td>
       <td>
         <span class="inlinesparkline">

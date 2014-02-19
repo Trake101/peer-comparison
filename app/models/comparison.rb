@@ -38,8 +38,8 @@ class Comparison < ActiveRecord::Base
   end
 
   def weights
-    return "Size: x#{self.f1_weight.to_i}; Cost: x#{self.f2_weight.to_i}; Access: x#{self.f3_weight.to_i};
-    Salary: x#{self.f4_weight.to_i}; Lib Arts: x#{self.f5_weight.to_i}; UG Comp: x#{self.f6_weight.to_i};
+    return "Size: x#{self.f1_weight.to_i}; Tuition/Aid: x#{self.f2_weight.to_i}; Access: x#{self.f3_weight.to_i};
+    Faculty Salary: x#{self.f4_weight.to_i}; Lib Arts Focus: x#{self.f5_weight.to_i}; Non-Tradional: x#{self.f6_weight.to_i};
     Expenditures: x#{self.f7_weight.to_i}"
   end
 

@@ -20,3 +20,35 @@
   float: left;
   text-align: right;
 }
+
+.inst-data > label, .inst-characteristics > label {
+  font-weight: bold;
+}
+
+.inst-data > p {
+  font-size: 150%;
+}
+
+.factor-one {
+  color: #d9d9d9;
+}
+
+.factor-two {
+  color: #bdbdbd
+}
+
+.factor-three {
+  color: #969696;
+}
+
+.factor-four {
+  color: #737373;
+}
+
+.factor-five {
+  color: #252525;
+}
+
+.factor-six {
+  color: black;
+}

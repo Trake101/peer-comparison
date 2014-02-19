@@ -4,6 +4,6 @@ class InstitutionsController < ApplicationController
   end
 
   def show
-
+    @institution = Institution.find(params[:id])
   end
 end
