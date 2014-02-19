@@ -1,0 +1,35 @@
+.tt-dropdown-menu{
+  background-color: white;
+  width: 300px;
+  border: 1px solid gray;
+}
+
+.tt-suggestions{
+  padding: 5px;
+}
+
+.tt-suggestion{
+  
+}
+
+.tt-suggestion:hover{
+  background-color: rgba(82, 168, 236, 0.8);
+  cursor: pointer;
+}
+
+p.inst-name {
+  margin-bottom: 0px;
+}
+p.inst-locale {
+  font-size: 75%;
+  font-color: gray;
+  font-style: italic;
+}
+
+#institution-search{
+  display: none;
+}
+
+select#comparison_institution_id {
+  margin-bottom: 5px;
+}

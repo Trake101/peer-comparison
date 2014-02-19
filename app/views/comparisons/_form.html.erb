@@ -4,6 +4,14 @@
     <%=f.inputs do%>
       <%=f.input :institution, :as => :select, :collection => Institution.select_options,
                  :label => "Base Institution", :include_blank => false, :required => false%>
+      <p>
+        <%=link_to '#', :id => "institution-search-toggle", :class => "btn btn-mini" do%>
+          <i class="icon-search"></i> Institution Search
+        <%end%>
+      </p>
+      <div id="institution-search">
+        <input class="typeahead" type="text" placeholder="Type an institution name" id="institution-search-input">
+      </div>
       <%=f.input :number_of_peers, :as => :select, :collection => [[10, 10],[25, 25],[50, 50], [250,250], ["All Available", ""]], 
                   :include_blank => false, :required => false%>
       <br />
@@ -115,4 +123,46 @@
   });
 
   $('.pop').popover({trigger: 'click'});
+
+
+  var institutions = new Bloodhound({
+    datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.inst_name + " " + d.unit_id); },
+    queryTokenizer: Bloodhound.tokenizers.whitespace ,
+    prefetch: 'api/v1/institutions',
+    limit: 10
+  });
+   
+  institutions.initialize();
+   
+  $('.typeahead').typeahead({
+    highlight: true
+    }, 
+    {
+    name: 'institutions',  
+    displayKey: 'inst_name',
+    source: institutions.ttAdapter(),
+    templates: {
+      suggestion: Handlebars.compile([
+        '<p class="inst-name">{{inst_name}}</p>',
+        '<p class="inst-locale">{{city}}, {{state}} ({{unit_id}})</p>'
+      ].join(''))
+    }
+  });  
+
+  $('.typeahead').bind('typeahead:selected', function(obj, datum) {        
+    $("#comparison_institution_id").val(datum.id);
+    $("#institution-search").fadeOut();
+    $('#institution-search-input').val(" ");
+  }); 
+
+  $('.typeahead').bind('typeahead:autocompleted', function(obj, datum) {    
+    $("#comparison_institution_id").val(datum.id);
+    $("#institution-search").fadeout();
+    $('#institution-search-input').val(" ");
+  });  
+
+  $("#institution-search-toggle").click(function(e){
+    $("#institution-search").fadeIn();
+    $('#institution-search-input').val(" ");
+  });
 </script>
