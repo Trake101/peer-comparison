@@ -9,3 +9,14 @@
   color: white;
   background-color: #08C;
 }
+
+#slide-off{
+  width: 9%;
+  float: left;
+}
+
+#slide-1, #slide-2, #slide-3, #slide-4, #slide-5 {
+  width: 18%;
+  float: left;
+  text-align: right;
+}

@@ -2,21 +2,16 @@
 <div class="row-fluid">
   <div class="span4">
     <%=f.inputs do%>
-      <div style="display: none">  
+      <div class="visible-phone">  
       <%=f.input :institution, :as => :select, :collection => Institution.select_options,
                  :label => "Base Institution", :include_blank => false, :required => false%>
       </div>
-      <div id="institution-search">
+      <div id="institution-search" class="hidden-phone">
         <label>Base Institution</label>
         <input class="typeahead" type="text" placeholder="Search by name or unit id" id="institution-search-input">
       </div>
       <%=f.input :number_of_peers, :as => :select, :collection => [[10, 10],[25, 25],[50, 50], [250,250], ["All Available", ""]], 
                   :include_blank => false, :required => false%>
-      <br />
-      <%=link_to "#", :id => "characteristics_link", :class => "btn" do%>
-        <span class="icon-filter"></span> Institutional Filters
-      <%end%>
-      <br />
     <%end%>
   </div>
   <div class="span5">
@@ -57,11 +52,17 @@
       <td><%=f.text_field :f7_weight, :label => "Factor Seven (Expenditure) Weight", :class => "slidable"%></td>
       </tr>
       <td>&nbsp;</td>
-      <td>Off&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x1
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x2
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x3 
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x4
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;x5</td>
+      <td>
+        <div id="slide-container">
+          <span id="slide-off">Off</span>
+          <span id="slide-1">1x</span>
+          <span id="slide-2">2x</span>
+          <span id="slide-3">3x</span>
+          <span id="slide-4">4x</span>
+          <span id="slide-5">5x</span>
+          <br clear="all" />
+        </div>
+      </td>
     </table>
   <%end%> 
   </div>
@@ -70,6 +71,13 @@
     <a href="#myModal" data-toggle="modal">Need help getting started <i class="icon-question-sign"></i></a>
   </p>
 </div>
+</div>
+<div class="row-fluid">
+  <div class="span12">
+    <%=link_to "#", :id => "characteristics_link", :class => "btn" do%>
+      <span class="icon-filter"></span> Institutional Filters
+    <%end%>
+  </div>
 </div>
 <div id="characteristics_wrapper" style="display:none;">
   <div class="row-fluid">
