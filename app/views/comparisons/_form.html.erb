@@ -134,7 +134,7 @@
   var institutions = new Bloodhound({
     datumTokenizer: function(d) { return Bloodhound.tokenizers.whitespace(d.inst_name + " " + d.unit_id + " " + d.city); },
     queryTokenizer: Bloodhound.tokenizers.whitespace ,
-    prefetch: 'api/v1/institutions',
+    prefetch: '<%=api_v1_institutions_url%>',
     limit: 10
   });
    
