@@ -36,7 +36,7 @@ default_environment['RAILS_RELATIVE_URL_ROOT'] = '/peer-comparison'
     run "cp -pf #{shared_path}/db/database.yml #{release_path}/config"
   end
  end
- before 'deploy:restart', 'deploy:copy_database_yml'
+ before 'deploy:assets:precompile', 'deploy:copy_database_yml'
  
  namespace :utils do
    desc "Allows you to tail your log for the passed stage"
