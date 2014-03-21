@@ -35,7 +35,7 @@ gem 'capistrano-ext', '1.2.1'
 # To use debugger
 # gem 'debugger'
 
-gem 'umn_bootstrap_rails', :git => 'git@github.umn.edu:oir/umn_bootstrap_rails'
+gem 'umn_bootstrap_rails', :git => 'git@github.umn.edu:pete2786/umn_bootstrap_rails'
 
 # Testing
 group :development, :test do

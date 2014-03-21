@@ -2,6 +2,18 @@
 <h1>Create a comparison group</h1>
 <hr />
 <%=render :partial => "comparisons/form"%>
+<div id="loading-indicator" style="display:none; text-align: center;">
+ <%= image_tag(asset_path('loader.gif')) %>
+</div>
+<script type="text/javascript">
+  $(document)  
+    .ajaxStart(function() {
+      $('#loading-indicator').show(); // show on any Ajax event.
+    })
+    .ajaxStop(function() {
+      $('#loading-indicator').hide(); // hide it when it is done.
+  });
+</script>
 <div id="comparison_output"></div>
 <div id="map-canvas" style="width: 100%; height: 300px; display: none;">
 
