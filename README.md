@@ -1,8 +1,8 @@
-== Comparison Group Generator
+# Comparison Group Generator
 
 The Comparison group generator is an application that puts a simple responsive web app on top of a comparison group data set Daniel Jones White created based on IPEDS data. It is a simple application from the developer perspective, the only complex piece is loading new data.
 
-== Loading the institution data set
+## Loading the institution data set
 Assume you have installed ruby, rubygems, bundler and have this application up and running fresh, you can simply run:
 
 `bundle exec rake import:institutions`
