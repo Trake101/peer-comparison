@@ -1,10 +1,12 @@
 set :stages, %w(staging production)
 set :default_stage, "staging"
-set :rvm_ruby_string, '1.9.3@oir-web'
+set :rvm_type, "/swadm/rvm/"
+set :rvm_bin_path, "/swadm/rvm/bin"
+set :rvm_ruby_string, "ruby-2.2.1@peer_comparison"
 
 require 'capistrano/ext/multistage'
 require "bundler/capistrano"
-#require "rvm/capistrano"
+require "rvm/capistrano"
 
 set :application, "peer-comparison"
 set :user, "deploy"
@@ -13,7 +15,7 @@ set :deploy_to, "/swadm/www/peer-comparison"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :repository,  "git@github.umn.edu-peer-comparison:oir/peer-comparison.git"
-set :branch, "master"
+set :branch, "rails_upgrade"
 set :ssh_options, { :forward_agent => true }
 
 set :use_sudo, false

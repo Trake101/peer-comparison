@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.17'
+gem 'rails', '3.2.22'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -31,6 +31,7 @@ gem 'jquery-rails'
 # Deploy with Capistrano
 gem 'capistrano', '2.15.4'
 gem 'capistrano-ext', '1.2.1'
+gem 'rvm-capistrano',  require: false
 
 # To use debugger
 # gem 'debugger'
@@ -49,7 +50,7 @@ gem "formtastic-bootstrap"
 
 # Oracle gems
 gem 'ruby-oci8'
-gem 'activerecord-oracle_enhanced-adapter'
+gem 'activerecord-oracle_enhanced-adapter', '~> 1.4.0'
 
 # Other useful gems
 gem 'will_paginate'
