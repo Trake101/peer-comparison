@@ -15,7 +15,7 @@ set :deploy_to, "/swadm/www/peer-comparison"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :repository,  "git@github.umn.edu-peer-comparison:oir/peer-comparison.git"
-set :branch, "rails_upgrade"
+set :branch, "master"
 set :ssh_options, { :forward_agent => true }
 
 set :use_sudo, false
