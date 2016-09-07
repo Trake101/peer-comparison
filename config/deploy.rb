@@ -1,7 +1,6 @@
 set :stages, %w(staging production)
 set :default_stage, "staging"
-set :rvm_type, "/swadm/rvm/"
-set :rvm_bin_path, "/swadm/rvm/bin"
+set :rvm_type, :user
 set :rvm_ruby_string, "ruby-2.2.1@peer_comparison"
 
 require 'capistrano/ext/multistage'
