@@ -1,5 +1,7 @@
 # Comparison Group Generator
 
+This software released under an MIT license.
+
 The Comparison group generator is an application that puts a simple responsive web app on top of a comparison group data set Daniel Jones White created based on IPEDS data. It is a simple application from the developer perspective, the only complex piece is loading new data.
 
 ## Loading the institution data set
