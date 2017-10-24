@@ -752,5 +752,4 @@ DEPENDENCIES
   sqlite3
   therubyracer
   uglifier (>= 1.0.3)
-  umn_bootstrap_rails!
   will_paginate
