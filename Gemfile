@@ -36,7 +36,7 @@ gem 'rvm-capistrano',  require: false
 # To use debugger
 # gem 'debugger'
 
-gem 'umn_bootstrap_rails', :git => 'git@github.umn.edu:pete2786/umn_bootstrap_rails'
+#gem 'umn_bootstrap_rails', :git => 'git@github.umn.edu:pete2786/umn_bootstrap_rails'
 
 # Testing
 group :development, :test do
